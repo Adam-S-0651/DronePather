@@ -96,7 +96,8 @@ void Graph::printGraph() {
 	unsigned int count = 0;
 	for (auto it = graph3D.begin(); it != graph3D.end(); it++) {
 		if (identifiers.find(it->first) != identifiers.end()) {
-			cout << "Node " << count << " " << " Connected: ";
+			Node temp = identifiers.find(it->first)->second;
+			cout << "Node " << count << ": (" << temp.getX() << "," << temp.getY() << "," << temp.getZ() << ") /" << " Connected: ";
 			for (auto it2 = it->second.begin(); it2 != it->second.end(); it2++) {
 				cout << it2->first << " ";
 			}

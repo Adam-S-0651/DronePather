@@ -20,11 +20,11 @@ int main()
     while (selection != 0) {
         if (selection == 2) {
             // Get max bounds of axis
-            cout << "Enter bounds of axis as a number (cube area between 1 and 1000): ";
+            cout << "Enter bounds of axis as a number (cube edge length between 1 and 1000): ";
             cin >> maxXYZ;
             while (maxXYZ > 1000 || maxXYZ < 1) {
                 cout << "Error: Invalid coordinate bounds" << endl;
-                cout << "Enter bounds of axis as a number (cube area between 1 and 1000): ";
+                cout << "Enter bounds of axis as a number (cube edge length between 1 and 1000): ";
                 cin >> numNodes;
             }
 
@@ -87,5 +87,11 @@ int main()
 
         cout << "\nEnter an option: \n0: Exit\n1: Select new nodes with same paths\n2: Generate a new graph\nYour selection: ";
         cin >> selection;
+        while (selection != 0 && selection != 1 && selection != 2) {
+            cout << "\nError: not a valid choice" << endl;
+            cout << "Your selection: ";
+            cin >> selection;
+        }
+        cout << endl;
     }
 }
