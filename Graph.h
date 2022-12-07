@@ -1,5 +1,6 @@
 #pragma once
 #include <unordered_map>
+#include <map>
 #include <iostream>
 #include "Node.h"
 #include "Hasher.h"
@@ -16,7 +17,7 @@ class Graph
 
 	private:
 		// Class variables
-		unordered_map<unsigned int, unordered_map<unsigned int, double>> graph3D;
+		map<unsigned int, unordered_map<unsigned int, double>> graph3D;
 		unordered_map<unsigned int, Node> identifiers;
 		unsigned int numNodes, maxEdges, maxXYZ;
 

@@ -18,7 +18,7 @@ Graph::Graph(unsigned int& numNodes, unsigned int& maxEdges, unsigned int& maxXY
 unsigned int Graph::randomGenerator(unsigned int rangeFrom, unsigned int rangeTo) {
 	// This was adapted from https://stackoverflow.com/questions/288739/generate-random-numbers-uniformly-over-an-entire-range
 	random_device randomGen;
-	mt19937_64 generator(randomGen());
+	mt19937 generator(randomGen());
 	uniform_int_distribution<unsigned int> distr(rangeFrom, rangeTo);
 
 	return distr(generator);
@@ -57,8 +57,9 @@ void Graph::makeEdges() {
 			graph3D.begin()->second.insert(make_pair(temp, distanceFinder(identifiers.find(temp)->second, identifiers.find(graph3D.begin()->first)->second)));
 		}
 		else {
-			it->second.insert(make_pair(temp, distanceFinder(identifiers.find(temp)->second, nodeFromIter(it))));
+			it->second.insert(make_pair(temp, distanceFinder(identifiers.find(temp)->second, identifiers.find(it->first)->second)));
 		}
+		cout << temp << endl;
 	}
 
 	// Iterates through every node in the map
@@ -79,7 +80,7 @@ void Graph::makeEdges() {
 			}
 			// Checks to make sure that there isn't a self-connection
 			if (!(it2->first == it->first)) {
-				it->second.insert(make_pair(it2->first, distanceFinder(nodeFromIter(it), nodeFromIter(it2))));
+				it->second.insert(make_pair(it2->first, distanceFinder(identifiers.find(it->first)->second, identifiers.find(it->first)->second)));
 			}
 		}
 	}
