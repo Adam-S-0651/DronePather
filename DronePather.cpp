@@ -85,13 +85,14 @@ int main()
 
         myGraph.runPathfinder(algorithm, from, to);
 
-        cout << "\nEnter an option: \n0: Exit\n1: Select new nodes with same paths\n2: Generate a new graph\nYour selection: ";
+        cout << "\nEnter an option: \n0: Exit\n1: Select new nodes with same graph\n2: Generate a new graph\nYour selection: ";
         cin >> selection;
         while (selection != 0 && selection != 1 && selection != 2) {
             cout << "\nError: not a valid choice" << endl;
             cout << "Your selection: ";
             cin >> selection;
         }
-        cout << endl;
     }
+    cout << "\nThank you for using Drone Pather! Goodbye." << endl;
+    return 0;
 }

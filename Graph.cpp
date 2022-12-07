@@ -2,7 +2,6 @@
 #include <unordered_set>
 #include <queue>
 #include <math.h>
-#include <set>
 #include "Graph.h"
 
 // Constructor for the graph object
@@ -19,7 +18,7 @@ Graph::Graph(unsigned int& numNodes, unsigned int& maxEdges, unsigned int& maxXY
 unsigned int Graph::randomGenerator(unsigned int rangeFrom, unsigned int rangeTo) {
 	// This was adapted from https://stackoverflow.com/questions/288739/generate-random-numbers-uniformly-over-an-entire-range
 	random_device randomGen;
-	mt19937 generator(randomGen());
+	mt19937_64 generator(randomGen());
 	uniform_int_distribution<unsigned int> distr(rangeFrom, rangeTo);
 
 	return distr(generator);
@@ -110,7 +109,6 @@ void Graph::printGraph() {
 // Call the wanted algorithm and print results
 void Graph::runPathfinder(char c, int from, int to) {
 	tuple<vector<unsigned int>, double, unsigned long> shortestPath;
-
 
 	if (c == 'a') {
 		// Placeholder call to nodes

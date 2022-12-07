@@ -9,8 +9,8 @@ class Graph
 {
 	public:
 		Graph(unsigned int& numNodes, unsigned int& maxEdges, unsigned int& maxXYZ);
-		tuple<vector<unsigned int>, double, unsigned long> dijkstrasPath(unsigned int start, unsigned int end);
-		tuple<vector<unsigned int>, double, unsigned long> aPath(unsigned int start, unsigned int end);
+
+		// Functions for printing various parts of the graph
 		void printGraph();
 		void runPathfinder(char c, int from, int to);
 
@@ -30,4 +30,8 @@ class Graph
 		// Convenience functions to save a few characters
 		Node& nodeFromIter(unordered_map<unsigned int, unordered_map<unsigned int, double>>::iterator it);
 		Node& nodeFromIter(unordered_map<unsigned int, double>::iterator it);
+
+		// Functions for pathfinding
+		tuple<vector<unsigned int>, double, unsigned long> dijkstrasPath(unsigned int start, unsigned int end);
+		tuple<vector<unsigned int>, double, unsigned long> aPath(unsigned int start, unsigned int end);
 };
